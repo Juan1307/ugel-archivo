@@ -76,21 +76,34 @@
 <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-book"></i>
-          <span>Resolución</span>
+          <i class="fas fa-user"></i>
+          <span>&nbsp;RES - Usuarios</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="datosin.php"><i class="fas fa-flag"></i> Oficina - Motivo</a>
             <h6 class="collapse-header text-primary">USUARIOS :</h6>
-            <a class="collapse-item" href="resolucion.php">Agregar - Resolucion</a>            
+            <a class="collapse-item" href="resolucion.php">Agregar - Resolución</a>            
+            <a class="collapse-item" href="resolucion_consulta.php">Consulta - Resolución</a>
             <a class="collapse-item" href="resolucion_detalle.php">C / Todo - Resolución</a>
-            <a class="collapse-item" href="resolucion_consulta.php">C / Fecha - Resolución</a>
             <a class="collapse-item" href="resolucion_listar.php">Listar - Resoluciones</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+          <i class="fas fa-home"></i>
+          <span>RES - Institución</span>
+        </a>
+        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="datosin.php"><i class="fas fa-flag"></i> Oficina - Motivo</a>
             <h6 class="collapse-header text-primary">INSTITUCIÓN :</h6>
-            <a class="collapse-item" href="resolucion_ie.php">Agregar - Resolucion</a>            
-            <a class="collapse-item" href="resolucion_detalle_ie.php">C / Todo - Resolución</a>
-            <a class="collapse-item" href="resolucion_consulta_ie.php">C / Fecha - Resolución</a>
+            <a class="collapse-item" href="resolucion_ie.php">Agregar - Resolución</a>            
+            <a class="collapse-item" href="resolucion_consulta_ie.php">Consulta - Resolución</a>
+            <a class="collapse-item" href="resolucion_detalle_ie.php">Entregados</a>
+            <a class="collapse-item" href="resolucion_detalle_ie_sn.php">Por entregar</a>
             <a class="collapse-item" href="resolucion_listar_ie.php">Listar - Resoluciones</a>
 
           </div>
@@ -122,11 +135,12 @@
         <div id="collapsethree" class="collapse" aria-labelledby="headingthree" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="datosin.php"><i class="fas fa-flag"></i> Oficina - Motivo</a>
-            <h6 class="collapse-header text-primary">CONTROL / U-I :</h6>
-            <a class="collapse-item" href="control.php">Realizar Entrega</a>
+            <h6 class="collapse-header text-primary">PERSONAL :</h6>
             <a class="collapse-item" href="personal.php">Agregar - Personal</a>
-            <a class="collapse-item" href="control_detalle.php">C / Todo - Control</a>
+            <h6 class="collapse-header text-primary">CONTROL :</h6>
+            <a class="collapse-item" href="control.php">Realizar Entrega</a>
             <a class="collapse-item" href="control_consulta.php">C / Fecha - Control</a>
+            <a class="collapse-item" href="control_detalle.php">C / Todo - Control</a>
             <a class="collapse-item" href="control_listar.php">Listar - Control</a>
           </div>
         </div>
@@ -140,7 +154,7 @@
         SECUNDARIO
       </div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
+      <!-- Nav Item - Pages Collapse Menu 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
@@ -154,7 +168,7 @@
 
           </div>
         </div>
-      </li>
+      </li>-->
       <?php 
 
         if (isset($_SESSION["usuario"]) and $_SESSION["usuario"]=="master") {

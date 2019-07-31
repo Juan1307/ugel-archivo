@@ -20,7 +20,7 @@
           <div class="card shadow mb-4">
             <div class="card-header">
               
-             <h5 class="m-0 font-weight-bold text-primary"><i class="fa fa-folder"></i>&nbsp;Resoluciones Entregadas
+             <h5 class="m-0 font-weight-bold text-primary"><i class="fa fa-folder"></i>&nbsp;Resoluciones Por Entregar
               <a href="resolucion_ie.php">
               <button class="btn btn-primary float-right"><i class="fas fa-folder-plus"></i></button>
               </a>
@@ -29,7 +29,7 @@
             </div>
               <div class="card-body">
                 <div class="table-responsive">
-                <table id="resolucion_detalle_data" class="table table-bordered table-hover" width="100%" cellspacing="0">
+                <table id="resolucion_detalle_data_sn" class="table table-bordered table-hover" width="100%" cellspacing="0">
                   <thead>
                       <tr>
                         <th>RES</th>
@@ -40,9 +40,6 @@
                         <th>Nivel</th>
                         <th>Entrega</th>
                         <th>Estado</th>
-                        <th>Receptor</th>
-                        <th>Dni</th>
-                        <th>Carnet</th>
                       </tr>
                   </thead>
                   <tfoot>
@@ -55,10 +52,7 @@
                         <th>Nivel</th>
                         <th>Entrega</th>
                         <th>Estado</th>
-                        <th>Receptor</th>
-                        <th>Dni</th>
-                        <th>Carnet</th>
-                      </tr>
+                       </tr>
                   </tfoot>
                   <tbody>
                     
@@ -72,7 +66,8 @@
 
 <?php require_once("includes/footer.php"); ?>
 
-<script type="text/javascript" src="js/resolucion_institucion/estado_entrega/ie_entregados.js"></script>
+<script type="text/javascript" src="js/resolucion_institucion/estado_entrega/ie_por_entregar.js"></script>
+
 
 <?php 
 

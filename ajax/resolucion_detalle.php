@@ -893,6 +893,87 @@ require_once("../config/conexion.php");
 					}
 
 					$sub_array[]=$estado_detalle;
+
+					$sub_array[]=$row["nombres"]." ".$row["apellidos"];
+					$sub_array[]=$row["ndni"];
+					$sub_array[]=$row["carnet"];
+
+					$data[]=$sub_array;
+			}
+
+			$results = array(
+
+				"sEcho"=>1, //Información para el datatables
+	 			"iTotalRecords"=>count($data), //enviamos el total registros al datatable
+ 				"iTotalDisplayRecords"=>count($data), //enviamos el total registros a visualizar
+ 				"aaData"=>$data);
+
+			echo json_encode($results);
+
+
+		break;
+		case 'listar_det_resolucion_institucion_sn':
+			//llamamos al metodo
+			$datos = $resolucion->get_det_resolucion_institucion_sn();
+				//data para datatable
+				$data = Array();
+
+			foreach ($datos as $row) {
+				
+				$sub_array = array();//sl descomponer lo almacenamos en este array
+
+					$sub_array[]=$row["nresolucion"]; //tbl resolucion
+					$sub_array[]=$row["nproyecto"];
+					$sub_array[]=$row["motivo"]; //tbl motivo
+					//$sub_array[]=$row["area"]; //tbl area
+					//PARA FECHA ENTREGA
+					if ($row["f_emision"]==null) {
+						
+						$f_emision = "Sin fecha";
+
+					} else {
+						
+						$f_emision = date("d-m-Y",strtotime($row["f_emision"]));//muestra la fecha 
+					}
+					
+					$sub_array[]='<span><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;'.$f_emision.' </span>';
+
+					//ESTADO DE TBLRESOLUCION
+					/*if ($row["estado"] == 1) {
+						
+						$estado = '<span class="badge badge-success">Activo</spans>';
+					} else {
+						
+						$estado ='<span class="badge badge-danger">Inactivo</span>';
+					}*/
+					
+					//$sub_array[]=$estado; //tbl resolucion
+					$sub_array[]=$row["nombre"];
+					$sub_array[]=$row["nivel"];
+
+					//PARA FECHA DE TBL_DETRESOLUCION
+					if ($row["f_entrega"]==null) {
+
+						$f_entrega = "Sin fecha";
+
+					} else {
+
+						$f_entrega = date("d-m-Y",strtotime($row["f_entrega"]));//muestra la fecha
+					}
+					
+					$sub_array[]='<span><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;'.$f_entrega.' </span>';
+
+					//PARA ESTADO DE TTBL_DETRESOLUCION
+					if ($row["estado_detalle"] == 1) {
+
+						$estado_detalle = '<span class="badge badge-success">Entregado</span>';
+						
+					} else {
+						
+						$estado_detalle = '<span class="badge badge-danger">Por entregar</span>';
+					}
+
+					$sub_array[]=$estado_detalle;
 				
 					$data[]=$sub_array;
 			}
@@ -908,6 +989,7 @@ require_once("../config/conexion.php");
 
 
 		break;
+
 
 	}
 }

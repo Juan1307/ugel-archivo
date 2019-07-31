@@ -13,7 +13,7 @@
 			$conectar=parent::conexion();
 			parent::set_names();
 
-			$sql = "SELECT MONTHname(r.f_emision) as mes, MONTH(r.f_emision) as numero_mes , YEAR(r.f_emision) as ano,COUNT(d.id_detresolucion) as total FROM tblresolucion r INNER JOIN tbl_detresolucion d ON r.id_resolucion = d.id_resolucion where d.estado='0' GROUP BY YEAR(r.f_emision) desc , month(r.f_emision) desc ";
+			$sql = "SELECT MONTHname(r.f_emision) as mesd, MONTH(r.f_emision) as numero_mesd , YEAR(r.f_emision) as anod, COUNT(d.id_detresolucion) as totald FROM tblresolucion r INNER JOIN tbl_detresolucion d ON r.id_resolucion = d.id_resolucion where d.estado='0' GROUP BY YEAR(r.f_emision) desc , month(r.f_emision) desc ";
 
 			$sql=$conectar->prepare($sql);
 
@@ -27,7 +27,7 @@
 			$conectar=parent::conexion();
 			parent::set_names();
 
-			$sql = "SELECT MONTHname(f_entrega) as mes, MONTH(f_entrega) as numero_mes,YEAR(f_entrega) as ano, COUNT(id_detresolucion) as total FROM tbl_detresolucion where estado='1' GROUP BY YEAR(f_entrega) desc , month(f_entrega) desc";
+			$sql = "SELECT MONTHname(f_entrega) as mesc, MONTH(f_entrega) as numero_mesc,YEAR(f_entrega) as anoc, COUNT(id_detresolucion) as totalc FROM tbl_detresolucion where estado='1' GROUP BY YEAR(f_entrega) desc , month(f_entrega) desc";
 
 			$sql=$conectar->prepare($sql);
 
@@ -41,7 +41,7 @@
 			$conectar=parent::conexion();
 			parent::set_names();
 
-			$sql = "SELECT MONTHname(f_emision) as mes, MONTH(f_emision) as numero_mes,YEAR(f_emision) as ano, COUNT(id_resolucion) as total FROM tblresolucion where estado='1' GROUP BY YEAR(f_emision) desc , month(f_emision) desc";
+			$sql = "SELECT MONTHname(f_emision) as mesa, MONTH(f_emision) as numero_mesa,YEAR(f_emision) as anoa, COUNT(id_resolucion) as totala FROM tblresolucion where estado=1 GROUP BY YEAR(f_emision) desc , month(f_emision) desc";
 
 			$sql=$conectar->prepare($sql);
 
@@ -55,7 +55,7 @@
 			$conectar=parent::conexion();
 			parent::set_names();
 
-			$sql = "SELECT MONTHname(f_emision) as mes, MONTH(f_emision) as numero_mes,YEAR(f_emision) as ano, COUNT(id_resolucion) as total FROM tblresolucion where estado='0' GROUP BY YEAR(f_emision) desc , month(f_emision) desc";
+			$sql = "SELECT MONTHname(f_emision) as mesb, MONTH(f_emision) as numero_mesb,YEAR(f_emision) as anob, COUNT(id_resolucion) as totalb FROM tblresolucion where estado=0 GROUP BY YEAR(f_emision) desc , month(f_emision) desc";
 
 			$sql=$conectar->prepare($sql);
 
@@ -324,7 +324,20 @@
 			$conectar=parent::conexion();
 			parent::set_names();
 
-				$sql="select r.nresolucion, r.nproyecto, m.descripcion as motivo, a.nombre as area, r.f_emision, r.estado , i.nombre, i.nivel, d.f_entrega, d.estado as estado_detalle from tbl_detresolucion d INNER JOIN tblresolucion r ON r.id_resolucion = d.id_resolucion INNER JOIN tblarea a ON r.id_area=a.id_area INNER JOIN tblmotivo m ON r.id_motivo=m.id_motivo INNER JOIN tblinstitucion i ON i.id_institucion = d.id_institucion where r.est_tbl=1";
+				$sql="select r.nresolucion, r.nproyecto, m.descripcion as motivo, a.nombre as area, r.f_emision, r.estado , i.nombre, i.nivel, d.f_entrega, d.estado as estado_detalle, u.nombres, u.apellidos, u.ndni, u.carnet  from tbl_detresolucion d INNER JOIN tblresolucion r ON r.id_resolucion = d.id_resolucion INNER JOIN tblarea a ON r.id_area=a.id_area INNER JOIN tblmotivo m ON r.id_motivo=m.id_motivo INNER JOIN tblinstitucion i ON i.id_institucion = d.id_institucion INNER JOIN tblusuarios u ON u.id_usuario=d.id_usuario where r.est_tbl=1 and d.estado = 1";
+ 
+			$sql=$conectar->prepare($sql);
+
+				$sql->execute();
+
+			return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);//recibimos los datos
+		}
+		public function get_det_resolucion_institucion_sn()
+		{
+			$conectar=parent::conexion();
+			parent::set_names();
+
+				$sql="select r.nresolucion, r.nproyecto, m.descripcion as motivo, a.nombre as area, r.f_emision, r.estado , i.nombre, i.nivel, d.f_entrega, d.estado as estado_detalle from tbl_detresolucion d INNER JOIN tblresolucion r ON r.id_resolucion = d.id_resolucion INNER JOIN tblarea a ON r.id_area=a.id_area INNER JOIN tblmotivo m ON r.id_motivo=m.id_motivo INNER JOIN tblinstitucion i ON i.id_institucion = d.id_institucion where r.est_tbl=1 and d.estado = 0";
  
 			$sql=$conectar->prepare($sql);
 

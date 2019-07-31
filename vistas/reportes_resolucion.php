@@ -60,16 +60,16 @@
                             
                             $meses=array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 
-                            $fecha=$datosa[$i]["mes"];
+                            $fecha=$datosa[$i]["mesa"];
 
                             $fecha_mes=$meses[date("n",strtotime($fecha))-1];
 
                         ?> 
                         <tr>
-                          <td><?php echo $datosa[$i]["ano"]; ?></td>
-                          <td><?php echo $datosa[$i]["numero_mes"]; ?></td>
+                          <td><?php echo $datosa[$i]["anoa"]; ?></td>
+                          <td><?php echo $datosa[$i]["numero_mesa"]; ?></td>
                           <td><?php echo $fecha_mes; ?></td>
-                          <td><?php echo $datosa[$i]["total"]; ?></td>
+                          <td><?php echo $datosa[$i]["totala"]; ?></td>
                         </tr>
 
                          <?php
@@ -102,16 +102,16 @@
                             
                             $meses=array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 
-                            $fecha_b=$datosb[$i]["mes"];
+                            $fecha_b=$datosb[$i]["mesb"];
 
                             $fecha_mes_b=$meses[date("n",strtotime($fecha_b))-1];
 
                         ?> 
                         <tr>
-                          <td><?php echo $datosb[$i]["ano"]; ?></td>
-                          <td><?php echo $datosb[$i]["numero_mes"]; ?></td>
+                          <td><?php echo $datosb[$i]["anob"]; ?></td>
+                          <td><?php echo $datosb[$i]["numero_mesb"]; ?></td>
                           <td><?php echo $fecha_mes_b; ?></td>
-                          <td><?php echo $datosb[$i]["total"]; ?></td>
+                          <td><?php echo $datosb[$i]["totalb"]; ?></td>
                         </tr>
 
                          <?php
@@ -148,16 +148,16 @@
                             
                             $meses=array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 
-                            $fecha_c=$datosc[$i]["mes"];
+                            $fecha_c=$datosc[$i]["mesc"];
 
                             $fecha_mes_c=$meses[date("n",strtotime($fecha_c))-1];
 
                         ?> 
                         <tr>
-                          <td><?php echo $datosc[$i]["ano"]; ?></td>
-                          <td><?php echo $datosc[$i]["numero_mes"]; ?></td>
+                          <td><?php echo $datosc[$i]["anoc"]; ?></td>
+                          <td><?php echo $datosc[$i]["numero_mesc"]; ?></td>
                           <td><?php echo $fecha_mes_c; ?></td>
-                          <td><?php echo $datosc[$i]["total"]; ?></td>
+                          <td><?php echo $datosc[$i]["totalc"]; ?></td>
                         </tr>
 
                          <?php
@@ -190,16 +190,16 @@
                             
                             $meses_d=array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 
-                            $fecha_d=$datosd[$i]["mes"];
+                            $fecha_d=$datosd[$i]["mesd"];
 
                             $fecha_mes_d=$meses_d[date("n",strtotime($fecha_d))-1];
 
                         ?> 
                         <tr>
-                          <td><?php echo $datosd[$i]["ano"]; ?></td>
-                          <td><?php echo $datosd[$i]["numero_mes"]; ?></td>
+                          <td><?php echo $datosd[$i]["anod"]; ?></td>
+                          <td><?php echo $datosd[$i]["numero_mesd"]; ?></td>
                           <td><?php echo $fecha_mes_d; ?></td>
-                          <td><?php echo $datosd[$i]["total"]; ?></td>
+                          <td><?php echo $datosd[$i]["totald"]; ?></td>
                         </tr>
 
                          <?php
