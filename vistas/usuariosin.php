@@ -81,7 +81,7 @@
             </div>
             <div class="form-group col-md-6">
               <label>C. Extranjeria:</label>
-              <input type="text" name="carnet" id="carnet" class="form-control" placeholder="Nro Carnet" pattern="[0-9]{10,15}" maxlength="15">
+              <input type="text" name="carnet" id="carnet" class="form-control" placeholder="Nro Carnet" onkeyup="this.value=num(this.value)" maxlength="15">
             </div>
             <div class="form-group col-md-12">
               <label>Contacto:</label>
@@ -111,7 +111,20 @@
 <?php require_once("includes/footer.php"); ?>
 
 <script type="text/javascript" src="js/usuarios/usuariosin.js"></script>
+<script type="text/javascript">
+    
+    function num(string){//solo letras y numeros
+      var out = '';
+      //Se añaden las letras validas
+      var filtro = '1234567890';//Caracteres validos
+  
+      for (var i=0; i<string.length; i++) //para i en 0
+        if (filtro.indexOf(string.charAt(i)) != -1) 
+        out += string.charAt(i);
 
+      return out;
+  }
+</script>
 <?php
   }else{
     //nos lleva al login

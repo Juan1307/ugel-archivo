@@ -111,7 +111,7 @@
             </div>
             <div class="form-group col-md-6">
               <label>C. Extranjeria:</label>
-              <input type="text" name="carnet" id="carnet" class="form-control" placeholder="Nro Carnet" pattern="[0-9]{10,15}" maxlength="15">
+              <input type="text" name="carnet" id="carnet" class="form-control" placeholder="Nro Carnet" onkeyup="this.value=num(this.value)" maxlength="15">
             </div>
             <div class="form-group col-md-12">
               <label>Contacto:</label>

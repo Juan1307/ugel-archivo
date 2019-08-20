@@ -179,7 +179,20 @@
       return out;
   }
 </script>
+<script type="text/javascript">
+    
+    function num(string){//solo letras y numeros
+      var out = '';
+      //Se añaden las letras validas
+      var filtro = '1234567890';//Caracteres validos
+  
+      for (var i=0; i<string.length; i++) //para i en 0
+        if (filtro.indexOf(string.charAt(i)) != -1) 
+        out += string.charAt(i);
 
+      return out;
+  }
+</script>
 <script type="text/javascript">
 
 $(document).ready(function(){
