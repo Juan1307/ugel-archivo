@@ -17,7 +17,7 @@
         { 
         try {//verifica la conexion
 
-            $conectar = $this -> dbh = new PDO("mysql:local=localhost;port=3306;dbname=bdarchivo2","root","");
+            $conectar = $this -> dbh = new PDO("mysql:local=localhost;port=3306;dbname=bdarchivo","root","");
             return $conectar; //devolvemos la conexion para usarla en otras clases o para la conexion con las tablas
             
         } catch (Exception $e) {
