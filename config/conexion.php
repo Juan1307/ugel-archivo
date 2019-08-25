@@ -8,6 +8,7 @@
         private $usuario = "root";
         private $contrasena = "";*/
     //creamos la clase conectar
+
     class Conectar {
         
         protected $dbh; //Atributo para la base de datos privada
